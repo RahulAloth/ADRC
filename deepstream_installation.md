@@ -51,3 +51,13 @@ update-alternatives: using /opt/nvidia/deepstream/deepstream-7.0/bin/service-mak
 NOTE: sources and samples folders will be found in /opt/nvidia/deepstream/deepstream-7.0
 ---------------------------------------------------------------------------------------
 Processing triggers for libc-bin (2.35-0ubuntu3.11) ...
+
+
+Check the pipeline works by doing this :
+
+gst-launch-1.0 v4l2src device=/dev/video0 ! \
+'video/x-raw,format=YUY2,width=1280,height=720' ! \
+nvvidconv ! 'video/x-raw(memory:NVMM),format=NV12' ! \
+nveglglessink
+
+
