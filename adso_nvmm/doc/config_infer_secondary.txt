@@ -1,0 +1,38 @@
+################################################################################
+# DeepStream Secondary Inference Configuration (SGIE)
+# Used for classification on top of PGIE bounding boxes
+################################################################################
+
+[property]
+gpu-id=0
+enable=1
+process-mode=2                # 2 = secondary classifier
+network-type=1                # 1 = classifier
+
+# Input dimensions (example)
+infer-dims=3;224;224
+batch-size=16
+
+# Model paths
+model-engine-file=./classifier.engine
+#onnx-file=./classifier.onnx
+
+network-mode=2                # FP16
+
+# Attach to PGIE class IDs (example: only classify "person")
+operate-on-gie-id=1
+operate-on-class-ids=0
+
+# Preprocessing
+mean-file=0;0;0
+scale-factor=1.0
+
+# Output
+output-blob-names=prob
+classifier-threshold=0.25
+
+labelfile-path=./classifier_labels.txt
+
+################################################################################
+# End of file
+################################################################################

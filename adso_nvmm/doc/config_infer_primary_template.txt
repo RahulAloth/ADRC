@@ -1,0 +1,67 @@
+################################################################################
+# DeepStream Primary Inference Configuration (PGIE)
+# Generic template for object detection models (TensorRT engine or ONNX/ETLT)
+################################################################################
+
+[property]
+# Unique ID for this inference element
+gpu-id=0
+enable=1
+process-mode=1                # 1 = primary detector
+network-type=0                # 0 = detector, 1 = classifier, 2 = segmentation
+
+# Input tensor format
+infer-dims=3;720;1280         # CHW format (example)
+batch-size=1
+network-input-order=0         # 0 = nchw, 1 = nhwc
+
+# Model paths (choose ONE of the following)
+# 1. TensorRT engine (recommended for deployment)
+model-engine-file=./model.engine
+
+# 2. ONNX model (DeepStream will build engine on first run)
+#onnx-file=./model.onnx
+
+# 3. TAO encrypted model (.etlt)
+#tlt-model-key=nvidia_tlt
+#tlt-encoded-model=./model.etlt
+
+# Precision mode
+network-mode=2                # 0=FP32, 1=INT8, 2=FP16
+
+# INT8 calibration (only if using INT8)
+#int8-calib-file=./calibration.bin
+
+# Preprocessing
+maintain-aspect-ratio=1
+symmetric-padding=1
+mean-file=0;0;0               # Optional
+scale-factor=1.0
+
+# Output tensor parsing
+num-detected-classes=4        # Change based on your model
+cluster-mode=2                # 2 = DBSCAN clustering
+output-blob-names=output_bbox;output_cov
+
+# Thresholds
+confidence-threshold=0.30
+nms-iou-threshold=0.45
+
+# Label file
+labelfile-path=./labels.txt
+
+################################################################################
+# Optional: Custom bounding box parser
+################################################################################
+#parse-bbox-func-name=NvDsInferParseCustomYolo
+#custom-lib-path=./libnvdsinfer_custom_impl_Yolo.so
+
+################################################################################
+# Optional: Engine caching
+################################################################################
+force-implicit-batch-dim=1
+workspace-size=4096
+
+################################################################################
+# End of file
+################################################################################
