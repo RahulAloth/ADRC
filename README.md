@@ -209,16 +209,6 @@ ros2 run rviz2 rviz2
 
 ---
 
-## ⏳ Estimated Timeline
-- Setup: 2 days
-- Hardware assembly: 2 days
-- ROS2 integration: 3 days
-- DeepStream AI: 2 days
-- Streaming & testing: 2 days
-**Total: ~10–12 days**
-
----
-
 ## 🌐 Future Enhancements
 - Autonomous navigation with waypoints.
 - Multi-camera support.
