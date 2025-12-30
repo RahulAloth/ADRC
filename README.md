@@ -1,8 +1,111 @@
-# ADRC
-Autnomous Driving Remote Control Operations.
+# 🚗 ADRC — Autonomous Driving Remote Control
 
-# TODO 
-# 🚗 ROS2 Remote Patrol Car with Jetson Nano & NVIDIA DeepStream
+ADRC stands for **Autonomous Driving Remote Control**, a system designed to remotely manage autonomous‑driving (AD) functionality using Edge AI. This project targets the testing and validation phase of **Level‑4 and Level‑5** autonomous vehicles, where safety, cost, and operational efficiency are critical.
+
+---
+
+## 🚀 Project Aim
+
+The ADRC project enables **remote control and supervision** of autonomous‑driving functions during high‑level AD testing.  
+In current OEM testing setups, a safety operator must sit inside the vehicle to:
+
+- Manually enable or disable AD functions  
+- Monitor the surroundings  
+- Ensure AD activation only within validated test routes  
+- Verify compliance with the Operational Design Domain (ODD)
+
+This approach is safe but **not scalable** and **not cost‑efficient**.
+
+ADRC replaces this in‑vehicle operator with a **remote operator**, improving safety, efficiency, and scalability.
+
+---
+
+## 🧠 System Overview
+
+A **Jetson device** is integrated with the vehicle’s autonomous‑driving stack. It performs two major functions:
+
+### 1. **Remote AD Control**
+- Communicates with a remote control center  
+- Allows AD‑enable/disable actions from a secure external location  
+- Ensures AD activation only when conditions are safe and validated  
+
+### 2. **Edge AI Perception**
+- Uses a single camera to observe the road environment  
+- Evaluates the situation similar to a human operator  
+- Supports decision‑making during AD engagement  
+- Uses GNSS data for precise vehicle positioning  
+
+This ensures that AD‑ready mode is activated **only on predefined, validated test paths**.
+
+---
+
+## 💡 Why ADRC?
+
+### ✔ Safety  
+Testing Level‑4/Level‑5 systems without exposing passengers, pedestrians, or traffic to unnecessary risk.
+
+### ✔ Cost Efficiency  
+Eliminates the need for **two people** inside the vehicle (driver + operator).  
+This significantly reduces testing costs across large fleets.
+
+### ✔ Scalability  
+Remote operators can supervise **multiple vehicles**, enabling large‑scale AD validation.
+
+### ✔ Future‑Ready  
+As the system matures, the remote operator’s role can be gradually reduced and eventually replaced by **Edge‑AI‑based decision logic**, enabling:
+
+- Autonomous AD‑readiness checks  
+- Automated ODD validation  
+- Fully remote, AI‑assisted AD testing workflows  
+
+---
+
+## 🛠 Key Components
+
+- **NVIDIA Jetson (Xavier/Orin)**  
+- **Edge AI perception pipeline**  
+- **Single‑camera road‑scene understanding**  
+- **GNSS‑based ODD validation**  
+- **Remote operator interface**  
+- **Secure communication link to AD stack**  
+
+---
+
+## 🧭 Testing Workflow
+
+1. Vehicle enters a predefined test route  
+2. Jetson evaluates the environment using camera + GNSS  
+3. Remote operator receives live data  
+4. Operator remotely enables AD‑ready mode  
+5. Vehicle activates Level‑4/Level‑5 functionality  
+6. Safety driver remains as fallback only  
+7. Over time, Edge AI can automate steps 2–4  
+
+---
+
+## 🔭 Future Roadmap
+
+- ROS2 integration  
+- Multi‑camera support  
+- Redundant perception modules  
+- Automated ODD compliance checks  
+- Full Edge‑AI‑based AD‑readiness decision engine  
+- Remote operator dashboard (web‑based UI)  
+
+---
+
+## 📄 License
+To be added based on your preference (MIT, Apache‑2.0, etc.)
+
+---
+
+## 🤝 Contributions
+Contributions, discussions, and suggestions are welcome.  
+Currently I single handle this project with help of GPT 4. Once project is matured, I definetly invite people to collaberate. 
+
+
+----
+
 
 ## ✅ Overview
 This roadmap guides you through building an **Edge AI Remote Patrol Car** using:
@@ -22,35 +125,8 @@ This roadmap guides you through building an **Edge AI Remote Patrol Car** using:
 
 ---
 
-## 📦 Hardware Setup
-1. **Chassis & Motors**
-   - RC car chassis with 2 DC motors and steering servo.
-   - Motor driver (e.g., TB6612FNG).
-
-2. **Sensors**
-   - Camera: CSI (IMX219) or USB UVC.
-   - LiDAR: RPLIDAR A1/A2 for mapping.
-
-3. **Networking**
-   - Wi-Fi module or Ethernet for remote control.
-
----
-
 ## 🔍 Software Installation
 ### On Jetson Nano:
-1. Flash **JetPack 4.x** image.
-2. Enable performance mode:
-   ```bash
-   sudo nvpmodel -m 0
-   sudo jetson_clocks
-   ```
-3. Add swap for stability:
-   ```bash
-   sudo fallocate -l 4G /swapfile
-   sudo chmod 600 /swapfile
-   sudo mkswap /swapfile
-   sudo swapon /swapfile
-   ```
 
 ### Install ROS2 Humble/Foxy:
 ```bash
