@@ -1,9 +1,17 @@
+## About
+> **Note to Reader:** > This section is only for my personal reference — links, rough notes, and scratch work. > You don’t need have nothing to read from this page.
+
+## Reference Link
 https://developer.nvidia.com/blog/reducing-temporal-noise-on-images-with-vpi-on-jetson-embedded-computers/
 https://docs.nvidia.com/jetson/archives/r36.2/DeveloperGuide/SD/Multimedia/AcceleratedGstreamer.html?utm_source=copilot.com
 https://developer.nvidia.com/embedded/jetpack-sdk-60#
 gst-inspect-1.0 nvv4l2camerasrc
 gst-inspect-1.0 nvvidconv
 gst-inspect-1.0 appsink
+
+## Notes
+
+
 
 
 Confirm whether your OpenCV has CUDA enabled
