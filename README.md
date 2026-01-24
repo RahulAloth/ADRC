@@ -39,6 +39,9 @@ This ensures that AD‑ready mode is activated **only on predefined, validated t
 
 ---
 
+[![Watch the video](path/to/thumbnail.png)](https://github.com/ADRC/blob/main/adso_nvmm/output/Realtime_Performance.mp4)
+
+
 ## 💡 Why ADRC?
 
 ### ✔ Safety  
