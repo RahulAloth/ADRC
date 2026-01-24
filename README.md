@@ -3,7 +3,7 @@
 ADRC stands for **Autonomous Driving Remote Control**, a system designed to remotely manage autonomous‑driving (AD) functionality using Edge AI. This project targets the testing and validation phase of **Level‑4 and Level‑5** autonomous vehicles, where safety, cost, and operational efficiency are critical.
 
 ---
-
+![Realtime Performance](/preview.gif)
 ## 🚀 Project Aim
 
 The ADRC project enables **remote control and supervision** of autonomous‑driving functions during high‑level AD testing.  
