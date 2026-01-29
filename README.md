@@ -9,10 +9,10 @@ ADRC stands for **Autonomous Driving Remote Control**, a system designed to remo
 The ADRC project enables **remote control and supervision** of autonomous‑driving functions during high‑level AD testing.  
 In current OEM testing setups, a safety operator must sit inside the vehicle to:
 
-- Manually enable or disable AD functions  
-- Monitor the surroundings  
-- Ensure AD activation only within validated test routes  
-- Verify compliance with the Operational Design Domain (ODD)
+- Manually enable or disable AD functions.
+- Monitor the surroundings.
+- Ensure AD activation only within validated test routes.
+- Verify compliance with the Operational Design Domain(ODD)
 
 This approach is safe but **not scalable** and **not cost‑efficient**.
 
@@ -198,7 +198,6 @@ ros2 run rviz2 rviz2
 ```
 
 ---
-
 ## 📡 Streaming & Dashboard
 - Optional: WebRTC for browser-based control.
 - Or use GStreamer RTP for low-latency video.
